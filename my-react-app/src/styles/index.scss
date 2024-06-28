@@ -1,0 +1,189 @@
+@import "partials/navbar";
+@import "partials/animations";
+
+:root {
+    --background-color: #fff;
+    --background-light: #fff;
+    --background-img: url(lightbg.jpg);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --primary-color: rgb(255, 0, 86);
+    --text-color: #0A0A0A;
+    --text-light: #575757;
+    --font-size: 16px;
+    --animation-speed: 1;
+}
+
+@function getAnimationDuration($duration: number) {
+    @return calc($duration*var(--animation-speed));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 55px;
+    font-size: var(--font-size);
+    font-family: "Playwrite NG Modern", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-image: var(--background-img);
+}
+
+a {
+    text-decoration: none;
+}
+
+@import "partials/sidebar";
+
+.btn {
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: .5em .75em;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px var(--shadow-color);
+
+    &:hover {
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+}
+
+.custom-image {
+    // background-color: red;
+    height: 0;
+    width: 100%;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+}
+
+img {
+    object-fit: cover;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 5vw;
+
+    .col {
+        width: 50%;
+    }
+
+    .title {
+        color: var(--text-color);
+        font-size: 3em;
+        margin-top: .25em;
+    }
+
+    .info {
+        color: var(--text-light);
+        font-size: 1em;
+        letter-spacing: 1px;
+        line-height: 1.3em;
+        margin-bottom: 1.25em;
+    }
+
+}
+
+@import "partials/about";
+
+@import "partials/perks";
+
+@import "partials/quotes";
+
+@import "partials/previous-searches";
+
+@import "partials/recipes-section";
+
+@import "partials/settings";
+
+@import "partials/footer";
+
+.main {
+    padding: 3vw;
+}
+
+.container {
+    padding-inline: 25px;
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        padding-inline: 18vw;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        padding-inline: 12vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        .nav-links {
+            display: none;
+        }
+
+        .sidebarBtn {
+            display: block;
+        }
+    }
+
+    .section{
+        .col{
+            width: 100%;
+            padding: 0 !important;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+    }
+
+    .benefits{
+        display: inline-block;
+        margin-right: 1em;
+        margin-bottom: 1em;
+    }
+
+    .footer{
+        grid-template-columns: repeat(4, 1fr);
+        .footer-section:nth-child(1){
+            grid-column: span 4;
+        }
+        .footer-section:nth-child(2){
+            grid-column: span 2;
+        }
+        .footer-section:nth-child(3){
+            grid-column: span 2;
+        }
+    }
+
+    .container {
+        padding-inline: 6vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding-inline: 3vw;
+    }
+}
